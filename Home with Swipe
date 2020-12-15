@@ -1,0 +1,2054 @@
+<style>#header-space {
+
+       display: none;
+}
+
+
+</style>
+<div align="center">
+<font color="white" size="2">{$client.maya_dash_head}</font>
+</div>
+<div id="alertsbymaya" class="collapse" data-toggle="collapse" align="center">
+                     <a href="#" data-toggle="popover" id="accountNotifications" data-placement="bottom">
+
+
+     <br>
+                     <font color="aqua" size="4">({$client.remote_alerts_live})</font>&nbsp<font color="white" size="2">VIEW MESSAGE LOGS</font><br><br>
+
+                    </a>
+                    <div id="accountNotificationsContent" class="hidden">
+                        <ul class="client-alerts">
+                        {foreach $clientAlerts as $alert}
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-fw fa-{if $alert->getSeverity() == 'danger'}exclamation-circle{elseif $alert->getSeverity() == 'warning'}exclamation-triangle{elseif $alert->getSeverity() == 'info'}info-circle{else}check-circle{/if}"></i>
+                                    <div class="message">Please check your Task Manager :)</div>
+                                </a>
+                            </li>
+                        {foreachelse}
+                               <br>&nbsp&nbsp<img src="https://d1ve85rsbmcjcw.cloudfront.net/Home-Dash/xibytecommandcenter123810941921lmaya.gif" width="20px" style="margin-top: -3px;">&nbsp<img class="text"> <font size="3.5">{$client.startup_mentor_maya}</font>
+                               <br> <br><font size="2">{$client.startup_mentor_message}</font>
+
+                               <br><br>
+
+                               {$client.mentor_body}
+
+                               <br>
+
+                            <li class="none">
+
+                            </li>
+                        {/foreach}
+                        </ul>
+                    </div>
+                </li>
+
+</div>
+<br><br><br><br><br><br>
+
+      <div class="full-width" align="center">
+
+  <a id="mayaexpand" href="#mayabrainpath" data-toggle="collapse">
+     <img src="https://www.xibyte.com/wp-content/uploads/ezgif.com-optimize.gif" width="200px" style="margin-bottom: -10px">
+
+     <br>
+</a>
+
+
+
+<audio id="denied" preload="auto" >
+      <source src="{$client.dash_animation}" type="audio/mp3">
+ </audio>
+
+    <script>
+    var x = document.getElementById("myAudio");
+
+    function playAudio() {
+      x.play();
+    }
+
+    function pauseAudio() {
+      x.pause();
+    }
+    </script>
+
+    <div class="full-width" align="center">
+
+
+
+{$client.maya_dash_main}
+<br>
+
+{$client.dash_capsule_status}
+
+<div>
+    </div>
+
+
+  <div>
+
+  <div class="mayaswipe">
+  <div class="mayaswipe--status">
+  </div>
+
+  <div class="mayaswipe--cards">
+    <div class="mayaswipe--card">
+      <img src="https://www.xibyte.com/wp-content/uploads/2020/11/Facebook.jpg">
+      <br><br><br>
+      <a href="https://mayadashboard.com/serverstatus.php" class="logo logo-text"><img src="https://www.xibyte.com/wp-content/uploads/2020/11/Redeem.png" width="150px"></a>
+
+    </div>
+    <div class="mayaswipe--card">
+      <img src="https://www.xibyte.com/wp-content/uploads/2020/11/EIN.png">
+          <br><br><br>
+      <a href="https://mayadashboard.com/serverstatus.php" class="logo logo-text"><img src="https://www.xibyte.com/wp-content/uploads/2020/11/Redeem.png" width="150px"></a>
+
+    </div>
+    <div class="mayaswipe--card">
+      <img src="https://www.xibyte.com/wp-content/uploads/2020/11/Google.jpg">    <br><br><br>
+      <a href="https://mayadashboard.com/serverstatus.php" class="logo logo-text"><img src="https://www.xibyte.com/wp-content/uploads/2020/11/Redeem.png" width="150px"></a>
+
+    </div>
+    <div class="mayaswipe--card">
+      <img src="https://www.xibyte.com/wp-content/uploads/2020/11/QuickBooks.jpg">    <br><br><br>
+      <a href="https://mayadashboard.com/serverstatus.php" class="logo logo-text"><img src="https://www.xibyte.com/wp-content/uploads/2020/11/Redeem.png" width="150px"></a>
+
+    </div>
+    <div class="mayaswipe--card">
+      <img src="https://www.xibyte.com/wp-content/uploads/2020/11/Facebook.jpg">    <br><br><br>
+      <a href="https://mayadashboard.com/serverstatus.php" class="logo logo-text"><img src="https://www.xibyte.com/wp-content/uploads/2020/11/Redeem.png" width="150px"></a>
+
+    </div>
+  </div>
+
+
+</div>
+  <script src='https://hammerjs.github.io/dist/hammer.min.js'></script>
+
+
+
+    <script  src="js/index.js"></script>
+
+
+  </div>
+
+
+
+
+<div id="missioncontrol" class="collapse missioncontrol" align="center">
+ <br>
+   <a href="#missioncontrol" data-toggle="collapse"> <img src="https://d1ve85rsbmcjcw.cloudfront.net/DashIcons/close.png" width="35px" ></a>
+     <br>
+
+    <br><br>
+<a href="https://mayadashboard.com/submitticket.php" class="logo logo-text">
+<img src="https://d1ve85rsbmcjcw.cloudfront.net/Mission+Control/New.png" width="300px"></a>
+
+    <a href="https://mayadashboard.com/supporttickets.php" class="logo logo-text">
+<img src="https://d1ve85rsbmcjcw.cloudfront.net/Mission+Control/Console.png" width="300px"></a>
+
+<br><br><br>
+
+<script type="text/javascript">
+    jQuery(document).ready( function ()
+    {
+        var table = jQuery('#tableTicketsList').removeClass('hidden').DataTable();
+        {if $orderby == 'did' || $orderby == 'dept'}
+            table.order(0, '{$sort}');
+        {elseif $orderby == 'subject' || $orderby == 'title'}
+            table.order(1, '{$sort}');
+        {elseif $orderby == 'status'}
+            table.order(2, '{$sort}');
+
+        {/if}
+        table.draw();
+        jQuery('#tableLoading').addClass('hidden');
+
+    });
+</script>
+
+
+<div class="table-container clearfix">
+
+        <tbody>
+
+            {foreach from=$tickets item=ticket}
+                <tr onclick="window.location='viewticket.php?tid={$ticket.tid}&amp;c={$ticket.c}'">
+                    <td><img src="https://d1ve85rsbmcjcw.cloudfront.net/Mission+Control/Logo_1.1_trasnparent-BG.gif" width="70px"><br>
+
+                    </td>
+                    <td>
+
+
+                        <a href="viewticket.php?tid={$ticket.tid}&amp;c={$ticket.c}" class="border-left">
+                            {$ticket.department}
+                            <span class="ticket-number">Support Thread #{$ticket.tid}</span>
+
+
+                            <span class="ticket-subject{if $ticket.unread} unread{/if}">{$ticket.subject}</span>
+                        </a>
+
+
+                    </td>
+                    <td><br>
+
+                        <span class="ticket-subject{if $ticket.unread} unread{/if}">
+
+                            <font color="gray" size="2">Status: {$ticket.status|strip_tags} </font><br>
+
+
+                            <a href="viewticket.php?tid={$ticket.tid}&amp;c={$ticket.c}" class="logo logo-text">
+<img src="https://d1ve85rsbmcjcw.cloudfront.net/Mission+Control/View.png" width="200px"></a>
+                            <br> <br> <br>
+
+                        </span>
+
+                    </td>
+                </tr>
+            {/foreach}
+        </tbody>
+    </table>
+
+    <br>
+    <br>
+    <br>
+</div>   </div>
+
+<div id="mayabrainpath" class="collapse mayabrainpath" align="center">
+<br>
+{$client.minimaya_1}
+
+
+<br><br><br>
+
+
+<font  color="white" size="6"><script language="JavaScript">
+var myDate = new Date();
+
+
+/* hour is before noon */
+if ( myDate.getHours() < 12 )
+{
+    document.write("Morning");
+}
+else  /* Hour is from noon to 5pm (actually to 5:59 pm) */
+if ( myDate.getHours() >= 12 && myDate.getHours() <= 17 )
+{
+    document.write("Afternoon");
+}
+else  /* the hour is after 5pm, so it is between 6pm and midnight */
+if ( myDate.getHours() > 17 && myDate.getHours() <= 24 )
+{
+    document.write("Evening");
+}
+else  /* the hour is not between 0 and 24, so something is wrong */
+{
+    document.write("Hi");
+}
+
+
+</script> {$clientfirstname},</font><br><font size="2">{$client.maya_greeting_sub}</font>
+<br><br><br><br><br>
+
+
+
+
+<div id="primary-content" class="primary-content">
+	<div class="personal-assistant">
+
+		<div id="felix" class="felix" onclick="activateFelix(); document.getElementById('denied').play();">
+			<div class="eyes">
+				<div class="eye left"></div>
+				<div class="eye right"></div>
+			</div>
+		</div>
+
+
+	</div>
+	<div id="response-frame" class="response-frame">
+		<p id="response-message" class="lead"></p>
+		<i class="fas fa-times" onclick="closeResponse();"></i>
+	</div>
+	<a href="#remoteconsole" data-toggle="collapse"><img src="https://d1ve85rsbmcjcw.cloudfront.net/DashIcons/Shell.png" width="130px" style="margin-top: -50px"></a><br>
+	<a href="#remoteconsole" data-toggle="collapse"><img src="https://d1ve85rsbmcjcw.cloudfront.net/Header/xibytecommandcenter12381094192122maya.gif" width="20px" style="margin-top:-77px"></a><br>
+
+
+</div>
+
+{$client.commandbutton}
+			<br>
+		<font size="2">{$client.maya_action_sub}</font>
+	<br><br>
+
+
+
+<div id="MayaAi" class="collapse-active" align="center" >
+
+
+<br>
+
+{$client.maya_focus_message}
+
+{$client.maya_background}
+
+<br>
+
+<div><br>
+
+
+<br><br>
+    <a href="{$WEB_ROOT}/logout.php">
+    <img src="https://d1ve85rsbmcjcw.cloudfront.net/Home-Dash/xibytecommandcenter123810941921lpower.png" width="50px"></a>
+<br>
+
+
+{$client.minimaya_2}
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+
+</div></div>
+
+
+
+<div id="missioncontrol" class="collapse dashdrawer" align="center">
+    <br>
+   <a href="#missioncontrol" data-toggle="collapse"> <img src="https://d1ve85rsbmcjcw.cloudfront.net/DashIcons/close.png" width="35px" ></a>
+<br><br>
+<a href="https://mayadashboard.com/submitticket.php" class="logo logo-text">
+<img src="https://d1ve85rsbmcjcw.cloudfront.net/Mission+Control/New.png" width="300px"></a>
+
+    <a href="https://mayadashboard.com/supporttickets.php" class="logo logo-text">
+<img src="https://d1ve85rsbmcjcw.cloudfront.net/Mission+Control/Console.png" width="300px"></a>
+
+<br><br><br>
+
+<script type="text/javascript">
+    jQuery(document).ready( function ()
+    {
+        var table = jQuery('#tableTicketsList').removeClass('hidden').DataTable();
+        {if $orderby == 'did' || $orderby == 'dept'}
+            table.order(0, '{$sort}');
+        {elseif $orderby == 'subject' || $orderby == 'title'}
+            table.order(1, '{$sort}');
+        {elseif $orderby == 'status'}
+            table.order(2, '{$sort}');
+
+        {/if}
+        table.draw();
+        jQuery('#tableLoading').addClass('hidden');
+
+    });
+</script>
+
+
+<div class="table-container clearfix">
+
+        <tbody>
+
+            {foreach from=$tickets item=ticket}
+                <tr onclick="window.location='viewticket.php?tid={$ticket.tid}&amp;c={$ticket.c}'">
+                    <td><img src="https://d1ve85rsbmcjcw.cloudfront.net/Mission+Control/Logo_1.1_trasnparent-BG.gif" width="70px"><br>
+                        {$ticket.department}
+                    </td>
+                    <td>
+
+
+                        <a href="viewticket.php?tid={$ticket.tid}&amp;c={$ticket.c}" class="border-left">
+                            <span class="ticket-number">Mission Control Thread #{$ticket.tid}</span>
+
+
+                            <span class="ticket-subject{if $ticket.unread} unread{/if}">{$ticket.subject}</span>
+                        </a>
+
+
+                    </td>
+                    <td><br>
+
+                        <span class="ticket-subject{if $ticket.unread} unread{/if}">
+
+                            <font color="gray" size="2">Status: {$ticket.status|strip_tags} </font><br>
+
+
+                            <a href="viewticket.php?tid={$ticket.tid}&amp;c={$ticket.c}" class="logo logo-text">
+<img src="https://d1ve85rsbmcjcw.cloudfront.net/Mission+Control/View.png" width="200px"></a>
+                            <br> <br> <br>
+
+                        </span>
+
+                    </td>
+                </tr>
+            {/foreach}
+        </tbody>
+    </table>
+
+    <br>
+    <br>
+    <br>
+</div>   </div>
+
+
+<style>#header{
+     display: none;
+
+}
+</style>
+
+<style>#footer{
+     display: none;
+
+}
+</style>
+
+<style>#languageChooser{
+     display: none;
+
+}
+</style>
+
+<style>.navbar-default{
+     display: none;
+
+}
+
+</style>
+
+<style>
+.alert {
+  padding: 20px;
+  background-color: rgb(249,249,249);
+  color: white;
+       border-style: solid;
+  border-color: white;
+}
+</style>
+
+
+<div class="full-width" align="center">
+
+<div id="MayaDash" class="collapse dashdrawer" align="center">
+
+     <br>
+   <a href="#MayaDash" data-toggle="collapse"> <img src="https://d1ve85rsbmcjcw.cloudfront.net/DashIcons/close.png" width="35px" ></a>
+     <br>
+
+    <br><br>
+     <img class="dashheader" src="https://d1ve85rsbmcjcw.cloudfront.net/Dock+Containers/MayaDash.png"  >
+<br>
+<img src="https://d1ve85rsbmcjcw.cloudfront.net/Home-Dash/xibytecommandcenter123810941921larrow.gif" style="margin-top: -50px" width="90px" >
+
+<div id="runningcapsules" class="collapse" align="center">
+
+<br>
+
+
+  {$client.dash_capsule_drawer}
+  {$client.dashrunningcapsules}
+
+ <br> <br>
+
+
+<a href="https://mayadashboard.com/clientarea.php?action=quotes" class="logo logo-text">
+<img src="https://d1ve85rsbmcjcw.cloudfront.net/Home-Dash/xibytecommandcenter123810941921lmarketplacebttn.png" width="200px"></a>
+
+
+ <br> <br> <br>
+
+</div>
+<div class="tiles clearfix">
+    <div class="row">
+
+
+                <div class="col-sm-3 col-xs-6 tile" >
+            <a  href="#runningcapsules" data-toggle="collapse">
+
+                    <div class="icon"><img src="https://www.xibyte.com/wp-content/uploads/2020/06/time.png" width="30px"></i></div>
+                    <div class="stat">{$client.dash_totalcapsule} </div>
+                    <div class="title">Capsules Running</div>
+                    <div class="highlight bg-color-green"></div>
+                </a>
+            </div>
+        {if $registerdomainenabled || $transferdomainenabled}
+            <div class="col-sm-3 col-xs-6 tile" onclick="window.location='   https://mayadashboard.com/knowledgebase.php'">
+             <div class="icon"><img src="https://www.xibyte.com/wp-content/uploads/2020/06/time.png" width="30px"></i></div>
+                    <div class="stat">{$clientsstats.numunpaidinvoices}</div>
+                    <div class="title">Project Alerts</div>
+                    <div class="highlight bg-color-green"></div>
+                </a>
+            </div>
+        {elseif $condlinks.affiliates && $clientsstats.isAffiliate}
+            <div class="col-sm-3 col-xs-6 tile" onclick="window.location='affiliates.php'">
+                <a href="affiliates.php">
+                    <div class="icon"><i class="fas fa-shopping-cart"></i></div>
+                    <div class="stat">{$clientsstats.numaffiliatesignups}</div>
+                    <div class="title">{$LANG.affiliatessignups}</div>
+                    <div class="highlight bg-color-green"></div>
+                </a>
+            </div>
+        {else}
+            <div class="col-sm-3 col-xs-6 tile" onclick="window.location='https://mayadashboard.com/clientarea.php?action=details">
+            <a href="https://mayadashboard.com/clientarea.php?action=details">
+
+              <div class="icon"><img src="https://www.xibyte.com/wp-content/uploads/2020/06/tehnology.png" width="30px"></i></div>
+                    <div class="stat">{$client.dash_competitoralerts}</div>
+                    <div class="title">Company Alerts</div>
+                    <div class="highlight bg-color-green"></div>
+                </a>
+            </div>
+        {/if}
+        <div class="col-sm-3 col-xs-6 tile" >
+            <a href="https://mayadashboard.com/affiliates.php">
+            <div class="icon"><img src="https://www.xibyte.com/wp-content/uploads/2020/06/globe.png" width="30px"></i></div>
+                <div class="stat">{$client.dash_telescopealerts}</div>
+                <div class="title">Analytic Alerts</div>
+                <div class="highlight bg-color-red"></div>
+            </a>
+        </div>
+         <div class="col-sm-3 col-xs-6 tile" onclick="window.location='https://mayadashboard.com/contact.php'">
+            <a href="https://mayadashboard.com/contact.php">
+   <div class="icon"><img src="https://www.xibyte.com/wp-content/uploads/login-5.png" width="30px"></i></div>
+                <div class="stat">{$client.dash_airteamprojects}</div>
+                <div class="title">Open Projects</div>
+                <div class="highlight bg-color-gold"></div>
+            </a>
+        </div>
+<br>
+<br>
+        <div class="col-sm-3 col-xs-6 tile">
+                <a href="https://mayadashboard.com/serverstatus.php">
+                <div class="icon"><img src="https://d1ve85rsbmcjcw.cloudfront.net/Home-Dash/xibytecommandcenter123810941921lmaya.gif" width="30px"></div>
+
+  <div class="stat">{$client.dash_mayaalerts}</div>
+
+                <div class="title">Maya Alerts</div>
+                <div class="highlight bg-color-blue"></div>
+            </a>
+        </div>
+        {if $registerdomainenabled || $transferdomainenabled}
+            <div class="col-sm-3 col-xs-6 tile">
+                <a href="clientarea.php?action=domains">
+                    <div class="icon"><img src="https://img.icons8.com/dusk/50/000000/list.png"></i></div>
+                    <div class="stat">{$clientsstats.productsnumactive}</div>
+                    <div class="title">Network Firewall</div>
+                    <div class="highlight bg-color-green"></div>
+                </a>
+            </div>
+        {elseif $condlinks.affiliates && $clientsstats.isAffiliate}
+            <div class="col-sm-3 col-xs-6 tile" onclick="window.location='affiliates.php'">
+                <a href="affiliates.php">
+                    <div class="icon"><i class="fas fa-shopping-cart"></i></div>
+                    <div class="stat">{$clientsstats.numaffiliatesignups}</div>
+                    <div class="title">{$LANG.affiliatessignups}</div>
+                    <div class="highlight bg-color-green"></div>
+                </a>
+            </div>
+        {else}
+            <div class="col-sm-3 col-xs-6 tile">
+                   <a href="https://mayadashboard.com/clientarea.php?action=quotes">
+              <div class="icon"><img src="https://www.xibyte.com/wp-content/uploads/shipping-and-delivery.png" width="30px"></i></div>
+  <div class="stat">{$client.dash_marketplacealerts}</div>
+                    <div class="title">Capsule Alerts</div>
+                    <div class="highlight bg-color-green"></div>
+                </a>
+            </div>
+        {/if}
+         <div class="col-sm-3 col-xs-6 tile" >
+
+
+             <a href="    https://mayadashboard.com/clientarea.php?action=emails">
+
+         <div class="icon"><img src="https://www.xibyte.com/wp-content/uploads/save-nature.png" width="30px"></i></div>
+                  <div class="stat">{$client.dash_opentask}</div>
+                <div class="title">{$client.firstname}'s Task</div>
+                <div class="highlight bg-color-red"></div>
+            </a>
+        </div>
+        <div class="col-sm-3 col-xs-6 tile">
+
+                 <a href="https://mayadashboard.com/clientarea.php?action=contacts">
+
+      <div class="icon"><img src="https://www.xibyte.com/wp-content/uploads/wellness.png" width="30px"></i></div>
+<div class="stat">{$client.dash_workstationalerts}</div>
+
+                <div class="title">System Alerts</div>
+                <div class="highlight bg-color-gold"></div>
+            </a>
+        </div>
+
+
+<div> </div> </div><br><br><br><br><br><br><br><div> </div> </div></div>
+
+
+
+
+ </div>
+ </div>
+
+ <div id="MayaMain" class="collapse todayswork" align="center">
+        <br>
+   <a href="#MayaMain" data-toggle="collapse"> <img src="https://d1ve85rsbmcjcw.cloudfront.net/DashIcons/close.png" width="35px" ></a>
+
+    <br>   <br>
+ <img class="dashheader" src="https://d1ve85rsbmcjcw.cloudfront.net/Dock+Containers/todaywork.png" >
+<br>
+<img src="https://d1ve85rsbmcjcw.cloudfront.net/Home-Dash/xibytecommandcenter123810941921larrow.gif" style="margin-top: -50px" width="90px" >
+
+
+  {$client.activation_alert}<br>
+ {$client.dashboard_status}<br>
+  {$client.welcome_progress}<br>
+
+
+    <br>
+    <a href="https://mayadashboard.com/clientarea.php?action=emails"><img src="https://commandcenterapp.s3.amazonaws.com/MayaBrain/AfterActivation/TNBUTTON.png" width="200px">  </a>
+    <br><br><br>
+</div>
+
+
+<style>
+.footer1 {
+  position: fixed;
+  left: 0;
+
+  bottom: 0;
+  width: 100%;
+  height:100px;
+  color: white;
+  text-align: center;
+
+}
+</style>
+
+
+<style>
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  background:
+    /* top, transparent red, faked with gradient */
+    linear-gradient(
+      rgba(24, 89, 109, 0.67),
+      rgba(24, 89, 109, 0.67)
+    ),
+    /* bottom, image */
+    center / cover no-repeat url("https://www.xibyte.com/wp-content/uploads/Personalized2.jpg");
+
+  color: white;
+
+  max-height: calc(100% - 50px);
+  overflow-y: auto;
+   border-top-left-radius:10%;
+    border-top-right-radius:10%;
+    z-index:9999;
+
+}
+</style>
+
+
+<style>
+.alertsdock {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+ background: center / cover no-repeat url("https://www.xibyte.com/wp-content/uploads/2020/06/geometric-dark-bg.jpg");
+  color: white;
+
+  max-height: calc(100% - 50px);
+  overflow-y: auto;
+  border-top-left-radius:20%;
+    border-top-right-radius:20%;
+      border-style: solid;
+  border-color: purple;
+
+}
+</style>
+
+
+<style>
+.missioncontrol {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background:
+    /* top, transparent red, faked with gradient */
+    linear-gradient(
+    rgba(252, 253, 252, 0.93),
+      rgba(252, 253, 252, 0.93)
+    ),
+    /* bottom, image */
+    center / cover no-repeat url("https://d1ve85rsbmcjcw.cloudfront.net/DashIcons/maya.gif");
+  color: white;
+  max-height: calc(100% - 50px);
+  overflow-y: auto;
+   border-top-left-radius:20%;
+    border-top-right-radius:20%;
+          border-style: solid;
+  border-color: red;
+    z-index:9999;
+}
+</style>
+
+
+<style>
+.mayabrainpath {
+  position: fixed;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+
+  background:
+    /* top, transparent red, faked with gradient */
+    linear-gradient(
+      rgba(22, 49, 42, 0.42),
+      rgba(2, 49, 42, 0.42)
+    ),
+    /* bottom, image */
+    center / cover no-repeat url("https://d1ve85rsbmcjcw.cloudfront.net/DashIcons/maya.gif");
+
+  color: white;
+
+  max-height: calc(100% - 50px);
+  overflow-y: auto;
+   border-top-left-radius:20%;
+    border-top-right-radius:20%;
+   z-index:99;
+}
+</style>
+
+<style>
+.dashdrawer {
+  position: fixed;
+  z-index:9999;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+ background: center no-repeat #fff;
+  color: white;
+  max-height: calc(100% - 50px);
+  overflow-y: auto;
+  border-top-left-radius:20%;
+    border-top-right-radius:20%;
+      border-style: solid;
+  border-color: coral;
+}
+</style>
+
+
+<style>
+.todayswork {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+ background: center no-repeat #fff;
+  color: white;
+  max-height: calc(100% - 50px);
+  overflow-y: auto;
+  border-top-left-radius:20%;
+    border-top-right-radius:20%;
+      border-style: solid;
+  border-color: blue;
+  z-index:9999;
+}
+</style>
+
+
+<div id="demo44" class="collapse footer" align="center">
+    <br>
+   <a href="#demo44" data-toggle="collapse"> <img src="https://d1ve85rsbmcjcw.cloudfront.net/DashIcons/close.png" width="35px" ></a>
+     <br><br><br><br><br>
+<div  class="text"> <font face="verdana" color="white" size="5">Which way {$clientfirstname}?</font>
+
+<div id="NewDoing" >
+
+  <br><br><br>
+<a href="https://mayadashboard.com/clientarea.php?action=quotes" class="logo logo-text"><img class="ex1" src="https://d1ve85rsbmcjcw.cloudfront.net/Navi/Marketplace.png" width="400px"></a>&nbsp&nbsp
+        <a href="https://mayadashboard.com/clientarea.php?action=emails" class="logo logo-text"><img class="ex2" src="https://d1ve85rsbmcjcw.cloudfront.net/Navi/TASK.png" width="200px"></a>&nbsp&nbsp
+        <a href="https://mayadashboard.com/clientarea.php?action=products" class="logo logo-text"><img class="ex2" src="https://d1ve85rsbmcjcw.cloudfront.net/Navi/TECH.png" width="200px"></a>&nbsp&nbsp
+
+
+
+      <a href="https://mayadashboard.com/serverstatus.php" class="logo logo-text"><img class="ex2" src="https://d1ve85rsbmcjcw.cloudfront.net/Navi/MAYA.png" width="200px"></a>&nbsp&nbsp
+
+         <a href="https://mayadashboard.com/affiliates.php" class="logo logo-text"><img class="ex1" src="https://d1ve85rsbmcjcw.cloudfront.net/Navi/Analytics.png" width="400px"></a>&nbsp&nbsp
+
+
+
+<a href="https://mayadashboard.com/clientarea.php?action=details" class="logo logo-text"><img class="ex2" src="https://d1ve85rsbmcjcw.cloudfront.net/Navi/ID2.png" width="200px"></></a>&nbsp&nbsp
+
+
+
+
+            <a href="https://mayadashboard.com/contact.php" class="logo logo-text"><img class="ex2" src="https://d1ve85rsbmcjcw.cloudfront.net/Navi/AT.png" width="200px"></a>&nbsp&nbsp
+<a href="https://mayadashboard.com/announcements.php" class="logo logo-text"><img class="ex2" src="https://d1ve85rsbmcjcw.cloudfront.net/Navi/PERKS.png" width="200px"></a>&nbsp&nbsp
+
+
+
+
+  <br><br><br><br><br>
+  </div>  </div>   </div>
+
+
+
+    <div id="mayaalerts" class="collapse alertsdock" align="center">
+
+     <br>
+    <br><br>
+   <a href="#mayaalerts" data-toggle="collapse"> <img src="https://d1ve85rsbmcjcw.cloudfront.net/DashIcons/close.png" width="35px" ></a>
+     <br>   <br>   <br>
+
+
+          <br>       <br>    <br>    <br>    <br>
+
+</div>
+
+
+
+
+
+
+
+
+    <div id="MayaMainExpand" class="collapse footer100" data-toggle="collapse">
+    <br>
+
+      <div class="full-width" align="center">
+
+
+    &nbsp<a href="#MayaMain" data-toggle="collapse">
+    <img class="dashdock" src="https://d1ve85rsbmcjcw.cloudfront.net/Home-Dash/xibytecommandcenter123810941921lclock.gif" ></a>
+    &nbsp
+
+      <a href="#MayaDash" data-toggle="collapse">
+    <img class="dashdock" src="https://d1ve85rsbmcjcw.cloudfront.net/Home-Dash/xibytecommandcenter123810941921ldash.png" ></a>
+    &nbsp
+
+      <a href="#profilemodal" data-toggle="collapse">
+    <img class="dashdock" src="https://d1ve85rsbmcjcw.cloudfront.net/DashIcons/unnamed.gif"></a>
+    &nbsp
+
+      <a href="#demo44" data-toggle="collapse">
+    <img class="dashdockmenu" src="https://d1ve85rsbmcjcw.cloudfront.net/Header/xibytecommandcenter12381094192appicon.png" ></a>
+    &nbsp
+
+
+      <a href="#alertsbymaya" data-toggle="collapse">
+    <img class="dashdock" src="https://d1ve85rsbmcjcw.cloudfront.net/DashIcons/Chat2-512.png" ></a>
+    &nbsp
+
+           <a href="#mayahealthconsole" data-toggle="collapse">
+    <img class="dashdock" src="https://commandcenterapp.s3-accelerate.amazonaws.com/2020/09/Maya-Bot.png" ></a>
+    &nbsp
+
+
+      <a href="#missioncontrol" data-toggle="collapse">
+    <img class="dashdock" src="https://d1ve85rsbmcjcw.cloudfront.net/DashIcons/MissionControl.png" ></a>
+    &nbsp
+
+
+
+
+
+
+
+
+  <br>
+
+</div>
+
+
+
+<div class="table-container clearfix">
+
+</div>   </div>
+
+<div class="se-pre-con">
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <img src="https://d1ve85rsbmcjcw.cloudfront.net/Home-Dash/xibytecommandcenter123810941921loader.gif" width="80px"><br><br><br>
+
+     <font size="6">Just a sec...</font><br>
+     <font size="2">Optimizing your Business Robot.</font><br>
+     <font size="2">Maya will be ready in a moment :)</font><br>
+     <img src="https://d1ve85rsbmcjcw.cloudfront.net/Maya+OnBoarding/MayaLoad.gif" width="150px" style="margin-top: -25px";>
+</div>
+
+<style> .no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+position: fixed;
+content:center;
+left: 0px;
+top: 0px;
+width: 100%;
+height: 100%;
+z-index: 19999;
+background: center no-repeat #fff;
+}
+</style>
+
+<script>
+$(window).load(function() {
+  // Animate loader off screen
+  $(".se-pre-con").fadeOut("slow");;
+});
+</script>
+
+
+<style>
+
+
+    body {
+background-image: url("https://www.xibyte.com/wp-content/uploads/Personalized2.jpg");
+  background-size: no-repeat cover;
+    opacity: .97;
+}
+
+#myVideo {
+  position: fixed;
+  top:-120px;
+  right: 0;
+  bottom: 0;
+  margin-top:-15px;
+  height: 1200px;
+  min-width: 100%;
+  min-height: 100%;
+  z-index:-1;
+}
+
+</style>
+
+
+<style>
+
+    #main-body {
+
+        	background: center / cover url("https://www.xibyte.com/wp-content/uploads/2020/07/black-radial-gradient-bb05ed79.jpg");
+
+
+      min-height:100%;
+
+
+
+    }    }
+</style>
+
+
+<video poster="/images/.jpg"  autoplay muted loop id="myVideo" >
+  <source src="https://mayadashboard.com/Videos/MayaApp.mp4" type="video/mp4">
+
+</video>
+
+</video>
+
+
+
+       <div id="Doing">
+
+
+ <br><br><br><br><br><br><br><br><br><br><br><br> <br><br><br><br>
+<br><br><br><br><img src="https://www.xibyte.com/wp-content/uploads/2019/08/4kicon_280-1.png" width="70px"><br><font face="verdana"color="white" size="1">{$clientfirstname}'s Command Center is running in 4K HD MODE</font><br>
+ {$client.maya_beta_message_new}
+ <br><br><br><br>
+
+
+  </div>
+
+<style>
+
+#Doing {
+min-height:450px;
+}
+</style>
+
+
+<style>
+
+#NewDoing {
+max-width: 1200px;
+  }
+</style>
+
+
+<script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
+
+
+
+
+
+
+
+<style>
+
+@media only screen and (max-width: 5000px) {
+  .mayaalerttile {
+      max-width: 400px;
+  }
+
+</style>
+
+            <style>
+
+@media only screen and (max-width: 500px) {
+  .mayaalerttile {
+      max-width: 300px;
+  }
+
+</style>
+
+<style>
+
+@media only screen and (max-width: 400px) {
+  .mayaalerttile {
+     max-width: 300px;
+  }
+
+</style>
+
+
+
+
+
+
+<style>
+
+@media only screen and (max-width: 5000px) {
+  .mayaalerttile1 {
+      max-width: 600px;
+  }
+
+</style>
+
+            <style>
+
+@media only screen and (max-width: 500px) {
+  .mayaalerttile1 {
+      max-width: 100%;
+  }
+
+</style>
+
+<style>
+
+@media only screen and (max-width: 400px) {
+  .mayaalerttile1 {
+     max-width: 100%;
+  }
+
+</style>
+
+
+
+
+
+<style>
+
+@media only screen and (max-width: 5000px) {
+  .dashheader {
+      max-width: 500px;
+  }
+
+</style>
+
+            <style>
+
+@media only screen and (max-width: 500px) {
+  .dashheader {
+      max-width: 320px;
+  }
+
+</style>
+
+<style>
+
+@media only screen and (max-width: 400px) {
+  .dashheader {
+     max-width: 300px;
+  }
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "block";
+        } else {
+            li[i].style.display = "none";
+        }
+
+    }
+}
+</script>
+
+
+
+            <style>
+
+@media only screen and (max-width: 5000px) {
+  .mkt1 {
+      max-width: 350px;
+        margin-left: -30px;
+  }
+
+</style>
+
+            <style>
+
+@media only screen and (max-width: 500px) {
+  .mkt1 {
+      max-width: 250px;
+       margin-left: -30px;
+  }
+
+</style>
+
+<style>
+
+@media only screen and (max-width: 400px) {
+  .mkt1 {
+     max-width: 200px;
+       margin-left: -30px;
+  }
+
+</style>
+
+<style>#myUL li{
+  display:none;
+}
+
+
+</style>
+
+<style>
+
+#myInput{
+max-width:700px;
+
+}
+</style>
+
+
+<style>
+  @media only screen and (max-width: 5000px)  {
+#install {
+max-width:75%;
+
+}
+</style>
+
+
+<style>
+  @media only screen and (max-width: 500px)  {
+#install {
+max-width:90%;
+
+}
+</style>
+
+
+<script>
+jQuery(function(){
+   jQuery('#mayaexpand').click();
+});
+</script>
+
+<style>
+    #mayaresult {
+        display: none;
+    }
+
+</style>
+
+<script>$("#myInput").on('keyup', function() {
+  var searchValue = $(this).val();
+  searchAndFilter(searchValue)
+});
+
+function searchAndFilter(searchTerm) {
+  if (searchTerm == '') {
+    $("#myUL li").hide()
+  } else {
+    $("#myUL li").each(function() {
+      var currentText = $(this).text();
+      currentText = currentText.toUpperCase();
+      searchTerm = searchTerm.toUpperCase();
+      if (currentText.indexOf(searchTerm) >= 0) {
+        $(this).show();
+      }
+    });
+  }
+}
+
+$(document).ready(function() {
+  $("#myUL li").hide();
+});</script>
+
+</style>
+
+<script>$("#myInput").on('keyup', function() {
+  var searchValue = $(this).val();
+  searchAndFilter(searchValue)
+});
+
+function searchAndFilter(searchTerm) {
+  if (searchTerm == '') {
+    $("#myUL li").hide()
+  } else {
+    $("#myUL li").each(function() {
+      var currentText = $(this).text();
+      currentText = currentText.toUpperCase();
+      searchTerm = searchTerm.toUpperCase();
+      if (currentText.indexOf(searchTerm) >= 0) {
+        $(this).show();
+      }
+    });
+  }
+}
+
+$(document).ready(function() {
+  $("#myUL li").hide();
+});</script>
+
+
+
+<script>
+jQuery(function(){
+   jQuery('#mayaexpand1').click();
+});
+</script>
+
+
+
+
+<style>
+/* Felix */
+.personal-assistant {
+	position: relative;
+	margin-top: 100px;
+	display: flex;
+	align-items: center;
+
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+}
+.felix {
+	position: absolute;
+	bottom: 8px;
+	width: 130px;
+	height: 95px;
+	border-radius: 45%;
+	background: center / cover no-repeat url("https://www.xibyte.com/wp-content/uploads/4e773867-abstract-blurred-gradient-mesh-background_1159-3169.jpg");
+	border: 3px solid #fff;
+	box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+	animation: breathe-and-jump 3s linear infinite;
+	cursor: pointer;
+	z-index: 1;
+}
+.felix::before {
+	content: '';
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	width: calc(100% + 3px);
+	height: calc(100% + 2px);
+	background-color: #18c;
+	background: linear-gradient(to bottom, #5fc, #1a8);
+	background: -webkit-linear-gradient(to bottom, #5cf, #18c);
+	border-radius: 45%;
+	opacity: 0;
+	transition: 0.3s linear all;
+}
+.felix > .eyes { position: relative; }
+.felix > .eyes > .eye {
+	position: absolute;
+	top: 28px;
+	width: 20px;
+	height: 25px;
+	border-radius: 15px;
+	background-color: #fff;
+	box-shadow: 0 0 7px rgba(255, 255, 255, 0.5);
+	animation: blink 5s linear infinite;
+}
+.felix > .eyes > .eye.left { left: 20%; }
+.felix > .eyes > .eye.right { right: 20% }
+
+/* Platforms */
+.platform {
+	transform: rotateX(70deg);
+	width: 100px;
+	height: 100px;
+	margin-top:-50px;
+	box-shadow: 0 0 100px #fff,
+		         0 0 15px #fff inset;
+	animation: jump-pulse 3s linear infinite;
+}
+.platform,
+.command-list > li::before {
+	border-radius: 50%;
+	transition: 0.2s linear all;
+}
+.command-list > li::before {
+	content: '';
+	position: absolute;
+	bottom: -35px;
+	left: 50%;
+	width: 65px;
+	height: 65px;
+	transform: translate(-50%) rotateX(70deg);
+	box-shadow: 0 0 50px #fff,
+		         0 0 15px #fff inset;
+}
+
+/* Hover */
+.felix:not(.active):hover {
+	animation: shake-to-alert 0.5s linear;
+	height: 105px;
+	transform: translateY(-4px);
+}
+.felix:not(.active):hover,
+.felix:not(.active):hover > .eyes > .eye {
+	border-color: #fc5;
+	box-shadow: 0 0 5px #fc5;
+}
+.felix:not(.active):hover + .platform {
+	box-shadow: 0 0 100px #fc5,
+		         0 0 15px #fc5 inset;
+	animation: shake-pulse 0.5s linear;
+}
+
+/* Awaiting Command */
+.felix.active { animation: bounce-then-breathe 5s linear infinite; }
+.felix.active::before { opacity: 1; }
+.felix.active,
+.felix.active > .eyes > .eye {
+	border-color: #5fc;
+	box-shadow: 0 0 5px #5fc;
+}
+.felix.active + .platform {
+	box-shadow: 0 0 100px #5fc,
+		         0 0 25px #5fc inset;
+	animation: bounce-pulse 5s linear;
+}
+
+/* Deactivation */
+.felix.inactive {
+	animation: deactivate 0.75s linear,
+				  breathe-and-jump 3s linear infinite;
+}
+.felix.inactive + .platform {
+	animation: deactivate-platform 0.75s linear;
+}
+
+
+
+/* Hey Felix */
+.hey-felix {
+	position: relative;
+	transform: translateY(50px);
+	margin: 0;
+}
+.hey-felix::after {
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	white-space: nowrap;
+	background-color: #fffa;
+}
+
+/* Response */
+.response-frame {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background-color: #000c;
+	z-index: -1;
+	opacity: 0;
+}
+.response-frame.active {
+	z-index: 1000;
+	opacity: 1;
+}
+.response-frame > .lead {
+	padding: 10px;
+	margin: 10px;
+	border-radius: 5px;
+	background-color: #fff;
+	color: #333;
+}
+.response-frame > .fas {
+	width: 50px;
+	height: 50px;
+	font-size: 25px;
+	line-height: 45px;
+	border: 2px solid #fff;
+	border-radius: 50%;
+	cursor: pointer;
+	box-shadow: 0 0 10px #fff, 0 0 5px #fff inset;
+	transition: 0.3s linear all;
+}
+.response-frame > .fas:hover {
+	border: 2px solid #f55;
+	box-shadow: 0 0 15px #f55, 0 0 5px #f55 inset;
+	color: #f55;
+}
+
+/* Animations */
+@keyframes fade-in {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+@keyframes breathe {
+	0%, 100% {
+		height: 95px;
+		transform: translateY(0);
+	}
+	50% {
+		height: 100px;
+		transform: translateY(-5px);
+	}
+}
+@keyframes bounce-then-breathe {
+	0%, 5%, 10%, 15% { transform: translateY(0); }
+	2.5%, 7.5%, 12.5% { transform: translateY(-15px); }
+	20%, 40%, 60%, 80%, 100% {
+		height: 95px;
+		transform: translateY(0);
+	}
+	30%, 50%, 70%, 90% {
+		height: 100px;
+		transform: translateY(-5px);
+	}
+}
+@keyframes shake-pulse {
+	0%, 20%, 40%, 60%, 80%, 100% { box-shadow: 0 0 100px #fc5, 0 0 15px #fc5 inset; }
+	10%, 25%, 35%, 50%, 65% { box-shadow: 0 0 115px #fc5, 0 0 15px #fc5 inset; }
+	15%, 30%, 45%, 55%, 70% { box-shadow: 0 0 95px #fc5, 0 0 15px #fc5 inset; }
+}
+@keyframes bounce-pulse {
+	0%, 5%, 10%, 15% { box-shadow: 0 0 30px #5fc, 0 0 45px #5fc inset; }
+	2.5%, 7.5%, 12.5% { box-shadow: 0 0 100px #5fc, 0 0 15px #5fc inset; }
+	20%, 40%, 60%, 80%, 100% { box-shadow: 0 0 30px #5fc, 0 0 45px #5fc inset; }
+	30%, 50%, 70%, 90% { box-shadow: 0 0 70px #5fc, 0 0 25px #5fc inset; }
+}
+@keyframes jump-pulse {
+	0%, 40%, 80%, 100% {
+		box-shadow: 0 0 30px #fff,
+		         	0 0 45px #fff inset;
+	}
+	20%, 60%, 70%, 90% {
+		box-shadow: 0 0 70px #fff,
+		         	0 0 25px #fff inset;
+	}
+	85% {
+		box-shadow: 0 0 100px #fff,
+		         	0 0 15px #fff inset;
+	}
+}
+@keyframes breathe-and-jump {
+	0%, 40%, 80%, 100% { height: 95px; transform: translateY(0); }
+	20%, 60%, 70%, 90% { height: 100px; transform: translateY(-5px); }
+	85% { height: 85px; transform: translateY(-20px); }
+}
+@keyframes shake-to-alert {
+	0%, 20%, 40%, 60%, 80%, 100% { transform: rotate(0) translateY(-5px); }
+	10%, 25%, 35%, 50%, 65% { transform: rotate(5deg) translateY(-5px); }
+	15%, 30%, 45%, 55%, 70% { transform: roate(-5deg) translateY(-5px); }
+}
+@keyframes blink {
+	0%, 100% { transform: scale(1, 0.05); }
+	5%, 95% { transform: scale(1, 1); }
+}
+@keyframes deactivate {
+	0% { border-color: #5fc; }
+	20%, 60% { border-color: #f55; }
+	40%, 80%, 100% { border-color: #fff; }
+}
+@keyframes deactivate-platform {
+	0% { box-shadow: 0 0 100px #5fc, 0 0 15px #5fc inset; }
+	40%, 80%, 100% { box-shadow: 0 0 15px #fff, 0 0 15px #fff inset; }
+	20%, 60% { box-shadow: 0 0 100px #f55, 0 0 15px #f55 inset; }
+}
+
+
+
+</style>
+
+
+<script>
+
+    // Constants
+const ACTIVE_TIME_MS = 5000;
+const DEACTIVATION_TIME_MS = 750;
+
+
+
+// Activate felix and set timeout for awaiting a command.
+function activateFelix() {
+	userMadeDecision = false;
+	felix.classList.remove("inactive");
+	felix.classList.add("active");
+	setTimeout(function() {
+		if (!userMadeDecision) {
+			felix.classList.remove("active");
+			felix.classList.add("inactive");
+			setTimeout(function() {
+				felix.classList.remove("inactive");
+			}, 15000);
+		}
+	}, 15000);
+}
+function deactivateFelix() {
+	userMadeDecision = true;
+	felix.classList.remove("active");
+	felix.classList.add("inactive");
+	setTimeout(function() {
+		felix.classList.remove("inactive");
+	}, 15000);
+}
+function getWeather() {
+	responseMessage.innerText = "The weather really just kind of sucks here, and I know you wanted the weather at your location, but that's life for you.";
+	showResponse();
+}
+function getTime() {
+	var today = new Date();
+	var time = today.getHours() + ":" + today.getMinutes();
+	responseMessage.innerText = "Perhaps it's time for you to get a watch? I'm just kidding... No. Really... It's " + time + ".";
+	showResponse();
+}
+function getDate() {
+	var today = new Date();
+	var date = today.getMonth() + '/' + today.getDate() + '/' + today.getFullYear();
+	responseMessage.innerText = "A calendar is a great investment you know; I mean, your computer even has one! Since you asked, today is " + date + ".";
+	showResponse();
+}
+function tellJoke() {
+	var index = Math.floor((Math.random() * jokes.length) - 1);
+	responseMessage.innerText = jokes[index];
+	showResponse();
+}
+function searchGoogle() {
+	deactivateFelix();
+	window.open("https://www.google.com/", "_blank");
+}
+function showInspiration() {
+	deactivateFelix();
+	window.open("https://dribbble.com/shots/5473987-AI-Robot", "_blank");
+}
+function showResponse() {
+	responseFrame.classList.add("active");
+	deactivateFelix();
+}
+function closeResponse() { responseFrame.classList.remove("active"); }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+<style>
+@media only screen and (max-width: 5000px) {
+#capsulepreview{
+    width:100px;
+
+}
+
+</style>
+
+
+<style>
+@media only screen and (max-width: 700px) {
+#capsulepreview{
+    width:80px;
+
+}
+
+</style>
+
+
+<style>@media only screen and (max-width: 700px) {
+  #MayaAi {
+      max-width: 300px;
+  }
+
+</style>
+
+
+
+<style>
+  @media only screen and (max-width: 5000px)  {
+#install1 {
+max-width:50%;
+
+}
+</style>
+
+
+
+<style>
+  @media only screen and (max-width: 1000px)  {
+#install1 {
+max-width:65%;
+
+}
+</style>
+
+
+<style>
+  @media only screen and (max-width: 500px)  {
+#install1 {
+max-width:90%;
+
+}
+</style>
+
+
+
+
+<style>
+
+@media only screen and (max-width: 5000px) {
+  .mayaalerttilecapsule {
+      max-width: 100%;
+  }
+
+</style>
+
+            <style>
+
+@media only screen and (max-width: 500px) {
+  .mayaalerttilecapsule {
+      max-width: 100%;
+  }
+
+</style>
+
+<style>
+
+@media only screen and (max-width: 400px) {
+  .mayaalerttilecapsule {
+     max-width: 100%;
+  }
+
+</style>
+
+
+
+<style>
+.alertcapsule {
+
+  background: center / cover no-repeat url("https://www.xibyte.com/wp-content/uploads/4e773867-abstract-blurred-gradient-mesh-background_1159-3169.jpg");
+  color: white;
+       border-style: solid;
+  border-color: white;
+}
+</style>
+
+
+<style>
+.alertcapsule10 {
+
+  background: center / cover no-repeat url("https://www.xibyte.com/wp-content/uploads/photo-1579546929518-9e396f3cc809-e1597765160697.jpeg");
+  color: white;
+       border-style: solid;
+  border-color: white;
+}
+</style>
+
+
+ <style>
+.footer100 {
+  position: fixed;
+  left: 0;
+  bottom: -10;
+  width: 100%;
+   background:
+    /* top, transparent red, faked with gradient */
+    linear-gradient(
+    rgba(252, 253, 252, 0.93),
+      rgba(252, 253, 252, 0.93)
+
+    ),
+    /* bottom, image */
+    center / cover no-repeat url("https://www.xibyte.com/wp-content/uploads/lights-scaled.jpg");
+       border-top-left-radius:20%;
+    border-top-right-radius:20%;
+  color: white;
+  text-align: center;
+
+}
+</style>
+
+
+
+<style>
+
+@media only screen and (max-width: 5000px) {
+  .dashdock {
+      max-width: 50px;
+  }
+
+</style>
+
+            <style>
+
+@media only screen and (max-width: 500px) {
+  .dashdock {
+      max-width: 35px;
+  }
+
+</style>
+
+<style>
+
+@media only screen and (max-width: 5000px) {
+  .dashdockmenu {
+      max-width: 50px;
+  }
+
+</style>
+
+            <style>
+
+@media only screen and (max-width: 500px) {
+  .dashdockmenu {
+      max-width: 40px;
+  }
+
+</style>
+
+
+<style>
+
+
+
+.box {
+  width: 60%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 35px;
+  border: 2px solid #fff;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+.overlay {
+  z-index:100;
+  position: fixed;
+  top: -10;
+  bottom: 300;
+  left: 0;
+  right: 0;
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 43%;
+  position: relative;
+     border-color: red green blue orange;
+   border-style: solid;
+
+  z-index:9999;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
+.popup .close:hover {
+  color: #06D85F;
+  z-index:9999;
+}
+
+
+.popup .close1 {
+
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
+.popup .close1:hover {
+  color: #06D85F;
+  z-index:9999;
+}
+
+.popup .content {
+  max-height: 100%;
+  overflow: auto;
+  z-index:9999;
+}
+
+@media screen and (max-width: 1200px){
+  .box{
+    width: 65%;
+  }
+  .popup{
+    width: 65%;
+  }
+}
+
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 95%;
+  }
+  .popup{
+    width: 95%;
+  }
+}
+
+
+
+</style>
+
+<script>'use strict';
+
+var mayaswipeContainer = document.querySelector('.mayaswipe');
+var allCards = document.querySelectorAll('.mayaswipe--card');
+var nope = document.getElementById('nope');
+var love = document.getElementById('love');
+
+function initCards(card, index) {
+  var newCards = document.querySelectorAll('.mayaswipe--card:not(.removed)');
+
+  newCards.forEach(function (card, index) {
+    card.style.zIndex = allCards.length - index;
+    card.style.transform = 'scale(' + (20 - index) / 20 + ') translateY(-' + 30 * index + 'px)';
+    card.style.opacity = (10 - index) / 10;
+  });
+
+  mayaswipeContainer.classList.add('loaded');
+}
+
+initCards();
+
+allCards.forEach(function (el) {
+  var hammertime = new Hammer(el);
+
+  hammertime.on('pan', function (event) {
+    el.classList.add('moving');
+  });
+
+  hammertime.on('pan', function (event) {
+    if (event.deltaX === 0) return;
+    if (event.center.x === 0 && event.center.y === 0) return;
+
+    mayaswipeContainer.classList.toggle('mayaswipe_love', event.deltaX > 0);
+    mayaswipeContainer.classList.toggle('mayaswipe_nope', event.deltaX < 0);
+
+    var xMulti = event.deltaX * 0.03;
+    var yMulti = event.deltaY / 80;
+    var rotate = xMulti * yMulti;
+
+    event.target.style.transform = 'translate(' + event.deltaX + 'px, ' + event.deltaY + 'px) rotate(' + rotate + 'deg)';
+  });
+
+  hammertime.on('panend', function (event) {
+    el.classList.remove('moving');
+    mayaswipeContainer.classList.remove('mayaswipe_love');
+    mayaswipeContainer.classList.remove('mayaswipe_nope');
+
+    var moveOutWidth = document.body.clientWidth;
+    var keep = Math.abs(event.deltaX) < 80 || Math.abs(event.velocityX) < 0.5;
+
+    event.target.classList.toggle('removed', !keep);
+
+    if (keep) {
+      event.target.style.transform = '';
+    } else {
+      var endX = Math.max(Math.abs(event.velocityX) * moveOutWidth, moveOutWidth);
+      var toX = event.deltaX > 0 ? endX : -endX;
+      var endY = Math.abs(event.velocityY) * moveOutWidth;
+      var toY = event.deltaY > 0 ? endY : -endY;
+      var xMulti = event.deltaX * 0.03;
+      var yMulti = event.deltaY / 80;
+      var rotate = xMulti * yMulti;
+
+      event.target.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg)';
+      initCards();
+    }
+  });
+});
+
+function createButtonListener(love) {
+  return function (event) {
+    var cards = document.querySelectorAll('.mayaswipe--card:not(.removed)');
+    var moveOutWidth = document.body.clientWidth * 1.5;
+
+    if (!cards.length) return false;
+
+    var card = cards[0];
+
+    card.classList.add('removed');
+
+    if (love) {
+      card.style.transform = 'translate(' + moveOutWidth + 'px, -100px) rotate(-30deg)';
+    } else {
+      card.style.transform = 'translate(-' + moveOutWidth + 'px, -100px) rotate(30deg)';
+    }
+
+    initCards();
+
+    event.preventDefault();
+  };
+}
+
+var nopeListener = createButtonListener(false);
+var loveListener = createButtonListener(true);
+
+nope.addEventListener('click', nopeListener);
+love.addEventListener('click', loveListener);</script>
+
+   <style>
+
+
+
+
+.mayaswipe {
+
+  max-width: 500PX;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.loaded.mayaswipe {
+  opacity: 1;
+}
+
+.mayaswipe--status {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+}
+
+.mayaswipe--status i {
+  font-size: 100px;
+  opacity: 0;
+  -webkit-transform: scale(0.3);
+          transform: scale(0.3);
+  transition: all 0.2s ease-in-out;
+  position: absolute;
+  width: 100px;
+  margin-left: -50px;
+}
+
+
+
+.mayaswipe--cards {
+ height:1000px;
+  padding-top: 40px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index:0;
+
+}
+
+.mayaswipe--card {
+  display: inline-block;
+  max-width: 400px;
+  background: #FFFFFF;
+  padding-bottom: 20px;
+   padding-top: 20px;
+  border-radius: 18px;
+  overflow: hidden;
+  position: absolute;
+  will-change: transform;
+  transition: all 0.3s ease-in-out;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.moving.mayaswipe--card {
+  transition: none;
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.mayaswipe--card img {
+  max-width: 95%;
+  pointer-events: none;
+}
+
+
+
+   </style>

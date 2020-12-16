@@ -1,5 +1,5 @@
 ![Logo](https://storage.googleapis.com/model_garden_artifacts/TF_Model_Garden.png)
-![Logo](https://www.xibyte.com/wp-content/uploads/2020/11/LEARN.png)
+![Logo](https://www.xibyte.com/wp-content/uploads/2020/11/C2.jpg)
 
 # Welcome to the Maya's Machine Learning Models for Tensorflow
 
